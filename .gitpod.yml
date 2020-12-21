@@ -1,16 +1,12 @@
 image: gitpod/workspace-full
-
-ports:
-  - port: 3000
-    onOpen: open-preview
-
 tasks:
-  - init: pip3 install -r requirements.txt
-    command: gp open templates/main.html && python3 server.py
-    name: New Terminal
-  - openMode: split-right
-    command: echo SplitTerminal
-
+ - init: npm install && npm install -g browser-sync
+   command: browser-sync -f *.html -f *.js --no-open --no-ui --listen 0.0.0.0
+ports:
+ - port: 3000
+   onOpen: open-preview
+ - port: 3001
+   onOpen: ignore
 vscode:
   extensions:
     - abusaidm.html-snippets@0.2.1:7b7Vkkp6Lem9WOqKCYMq2w==
