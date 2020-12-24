@@ -1,0 +1,15 @@
+{
+  "name": "yulias-game",
+  "version": "1.0.0",
+  "description": "Yulias school project",
+  "main": "index.html",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7"
+  },
+  "scripts": {
+    "serve-gitpod": "browser-sync -f *.html -f *.js --no-open --no-ui --listen 0.0.0.0",
+    "serve-vscode": "browser-sync -f *.html -f *.js"
+  }
+}

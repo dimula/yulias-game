@@ -1,7 +1,7 @@
 image: gitpod/workspace-full
 tasks:
- - init: npm install && npm install -g browser-sync
-   command: browser-sync -f *.html -f *.js --no-open --no-ui --listen 0.0.0.0
+ - init: npm install
+   command: npm run serve-gitpod
 ports: 
  - port: 3000
    onOpen: open-preview

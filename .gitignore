@@ -1,2 +1,3 @@
-.theia/
 *-lock.json
+node_modules
+.theia
