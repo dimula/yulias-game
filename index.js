@@ -1,3 +1,5 @@
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
 
 var bird = new Image();  
 var bg = new Image();  
@@ -20,25 +22,29 @@ function moveUp(){
     if(by>20)   
     by = by-25;  
 } 
+   var pipes = [270]; 
 
 function draw() {
-    var c = document.getElementById("myCanvas");
-    var ctx = c.getContext("2d");
 
     ctx.drawImage(bg, 0, 0, 270, 430);
 
-    var pipes = [10,100,190];
-
     for (var i=0; i<pipes.length; i++){
         var x = pipes[i]
+
+        if (x==100){
+            pipes.push(270)
+        }
+
         ctx.drawImage(pipeNorth, x, -100);
         ctx.drawImage(pipeSouth, x, 200);
+        pipes[i] = x-1
     };
 
     ctx.drawImage(bird, bx, by);
-    if(by<400)
+    if(by<345)
         by = by+1  
 
+    ctx.drawImage(fg, 0, 370,);  
     requestAnimationFrame(draw); 
 };
 
