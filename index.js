@@ -21,12 +21,13 @@ var bx2 = bx1 + bird.width;
 
 var score = 0;
 
-var pipes = [270]; 
+var pipes = [{x:270,y:127}]; 
 
 document.addEventListener("keydown",moveUp);  
 function moveUp(){  
     if(by>20)   
-    by = by-25;  
+    by = by-25; 
+    //moves the bird up and down with a press of a button 
 } 
 
 function draw() {
@@ -35,27 +36,31 @@ function draw() {
 
     for (var i=0; i<pipes.length; i++){
         
-        var x = pipes[i]
+        var obj =pipes[i]
+        var x = obj.x
+        var y = obj.y;
 
         if (x==100){
-            pipes.push(270)
+            var tmp = {x:270, y:Math.floor(Math.random()*220)}
+            pipes.push(tmp)
         }
+        //the loop for pipes
+        ctx.drawImage(pipeNorth, x, -pipeNorth.height+y);
+        ctx.drawImage(pipeSouth, x, 100+y);
 
-        ctx.drawImage(pipeNorth, x, -100);
-        ctx.drawImage(pipeSouth, x, 300);
-
-        pipes[i] = x-1
+        obj.x = x-1;
 
         var gx1 = x;
         var gx2 = x + pipeNorth.width;
-        var gy1 = -100 + pipeNorth.height;
-        var gy2 = 300;
+        var gy1 = y;
+        var gy2 = 100+y;
         var by1 = by;
         var by2 = by1 + bird.height;
-
+        //the vars for the bird hitting the pipes, and the game restarting
         if(gx2 == 0){
             score++;
         }
+        //the score, it adds 1 every time the pipe goes out of canvas
 
         if(bx2 > gx1 && bx1 < gx2){
             if(by1 < gy1 || by2 > gy2){
@@ -67,7 +72,7 @@ function draw() {
 
     ctx.drawImage(bird, bx, by);
     if(by<345)
-        by = by+1  
+        by = by+1;
 
     ctx.drawImage(fg, 0, 370,);  
 
@@ -82,3 +87,12 @@ var debug = function(str,pos) {
 }
 
 window.onload = draw
+
+//For the math.random part I need to make the north pipe, and south pipe move up  and down randomly.
+//Once i am done making flappy bird I need to start making my virus game. 
+//Before I do i need to plan it out.Basically copy everyhting i once wrote
+//on the board and write it in a more organized way on paper
+//use gy1 and gy2 for the .random, or pipe north and pipe south, ask dad which would work better
+//bug for when the bird hits the pipe with its centre, or wings for some reason it doesn't count it, nevermind i fixed the bug
+//it turns out since i changed the location of the bottom pipe from 300 to 220, when the bird collided with it
+//it didn;t count because the gy2 was still at 300. ahahaha, tell dad
