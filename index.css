@@ -1,0 +1,128 @@
+body {
+  background-color: #dce7f7;
+}
+
+h1 {
+  color: #788ead;
+  text-align: center;
+  font-family: Ariel;
+  font-size: 45px;
+}
+
+h2 {
+  color: #788ead;
+  font-family: Ariel;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+div {
+  color: #788ead;
+  font-family: Ariel;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*
+#ded-counter {
+  color: #5c5c5c;
+}
+
+#sick-counter {
+  color: #f55356;
+}
+
+#healthy-counter {
+  color: #57d97b;
+} 
+
+
+#immune-counter {
+  color: #fff88f;
+}
+
+#vaccinated-counter {
+  color: #788ead;
+}
+*/
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #788ead;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Ariel;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+li a:hover {
+  background-color: #c5cedb;
+}
+
+.game-field {
+  margin: auto;
+  //border: 3px solid red;
+  width: 780px;
+}
+
+#myCanvas, .score-board {
+  //border: 3px solid green;
+  float: left;
+}
+
+.placeholder{
+  width: 60px;
+  border: 3px solid #dce7f7;
+  float: left;
+}
+.score-board {
+  padding-left: 15px;
+}
+
+.game-field {
+  overflow: auto;
+}
+
+
+.button {
+  background-color: #788ead;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Ariel;
+  margin: 15px 15px;
+  cursor: pointer;
+}
+
+/*
+canvas {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 15px;
+  padding: 10px;
+}
+
+
+#score-board {
+  float: left;
+}
+*/

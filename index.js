@@ -1,19 +1,44 @@
 console.clear();
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-const PEOPLE_WIDTH=25
-const PEOPLE_HEIGHT=25
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+
+const CIRCLE_SIZE = 20
+const PEOPLE_WIDTH=Math.floor(canvas.width/CIRCLE_SIZE)
+const PEOPLE_HEIGHT=Math.floor(canvas.height/CIRCLE_SIZE)
 
 const SICK_DURATION = 10;
-const IMMUNE_DURATION = 10;
+const IMMUNE_DURATION = 12;
+const VACCINATED_DURAION =25;
 const DEATH_PROBABILITY = 1;
-const INFECTION_PROBABILITY = 90;
+const INFECTION_PROBABILITY = 88;
+
+canvas.addEventListener('mousedown', function(e) {
+    getCursorPosition(canvas, e)
+})
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    //console.log("x: " + x + " y: " + y)
+    var xi=Math.floor(x/CIRCLE_SIZE-1)
+    var yi=Math.floor(y/CIRCLE_SIZE-1)
+    //console.log("xi: " + xi + " yi: " + yi)
+    
+    var person = people[xi][yi]
+    if(person.health == Health.healthy){
+      person.health = Health.vaccinated; 
+    };
+    
+}
 
 var Health = {
   health: 0,
   sick: 1,
   immune: 2,
   ded: 3,
+  vaccinated: 4,
 }
 
 var person = {
@@ -39,14 +64,16 @@ function createPeople (){
     }
   }
 
-  var person = people[0][0]
+  var person = people[5][7]
+  person.health=Health.sick
+  person = people[11][12]
   person.health=Health.sick
   return people;
 };
 
 function drawMan(x,y,color) {
   ctx.beginPath();
-  ctx.arc(x, y, 5, 0, 2 * Math.PI);
+  ctx.arc(x, y, CIRCLE_SIZE/3, 0, 2 * Math.PI);
   ctx.stroke();
   ctx.fillStyle = color;
   ctx.fill();
@@ -59,13 +86,15 @@ function drawPeople() {
       
       var color = "#57d97b"
       if(person.health==Health.sick)
-        color = "red";
+        color = "#f55356";
       else if(person.health==Health.immune)
-        color = "yellow";
+        color = "#fff88f";
       else if(person.health==Health.ded)
-        color = "black";
+        color = "#5c5c5c";
+      else if(person.health==Health.vaccinated)
+        color = "#788ead";
       
-     drawMan(15+x*15, 15+y*15, color);
+     drawMan(CIRCLE_SIZE/2+x*CIRCLE_SIZE, CIRCLE_SIZE/2+y*CIRCLE_SIZE, color);
     }
   }
 };
@@ -116,6 +145,14 @@ function day(){
        person.futureHealth=Health.sick;
        person.duration = 0;
       }
+      else if (person.health==Health.vaccinated){
+        person.duration = person.duration+1
+        if(person.duration >= VACCINATED_DURAION){
+           person.health = Health.healthy;
+           person.futureHealth=Health.healthy;
+           person.duration = 0;
+        }
+      }
     }
   }
   
@@ -129,7 +166,43 @@ function day(){
   }
       
   drawPeople()
+  socreBoard()
 };
+
+function socreBoard(){
+  var dedCounter=0 
+  var sickCounter=0
+  var immuneCounter=0
+  var healthyCounter=0 
+  var vaccinatedCounter=0
+  for (var x = 0; x < people.length; x++){
+    for (var y = 0; y < people[0].length; y++){
+      var person = people[x][y]
+      
+      if (person.health==Health.ded){
+        dedCounter++
+      };
+      if (person.health==Health.healthy){
+        healthyCounter++
+      };
+      if (person.health==Health.sick){
+        sickCounter++
+      };
+      if (person.health==Health.immune){
+        immuneCounter++
+      };
+      if (person.health==Health.vaccinated){
+        vaccinatedCounter++
+      };
+    }
+  }
+  
+  document.getElementById("ded-counter").innerHTML=dedCounter
+  document.getElementById("healthy-counter").innerHTML=healthyCounter
+  document.getElementById("sick-counter").innerHTML=sickCounter
+  document.getElementById("immune-counter").innerHTML=immuneCounter
+  document.getElementById("vaccinated-counter").innerHTML=vaccinatedCounter
+}
 
 
 

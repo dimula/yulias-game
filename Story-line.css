@@ -1,0 +1,60 @@
+body {
+  background-color: #dce7f7;
+}
+
+h1 {
+  color: #788ead;
+  text-align: center;
+  font-family: Ariel;
+  font-size: 45px;
+}
+
+h2 {
+  color: #788ead;
+  font-family: Ariel;
+  font-size: 14px;
+  text-align: center;
+}
+
+div {
+  color: #788ead;
+  font-family: Ariel;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #788ead;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: Ariel;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+li a:hover {
+  background-color: #c5cedb;
+}
+
+p.a { 
+  width: 900px;
+  margin: auto;
+  text-align:justify;
+  color: #788ead;
+  font-family: Ariel;
+  font-size: 18px;
+  font-weight: bold;
+}

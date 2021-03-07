@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Pandemic</title>
+    <link rel="stylesheet" href="index.css">
+  <title>Vaccinator</title>
 </head>
 <body>
+  
+  <ul>
+  <li><a href="index.html">Home</a></li>
+  <li><a href="Rules.html">Rules</a></li>
+  <li><a href="Story-line.html">Story-line</a></li>
+  <li><a href="about">About me</a></li>
+  </ul>
+  
   <h1>Vaccinator</h1>
-   <canvas id="myCanvas" width="390" height="390" style="border: 2px solid black;"></canvas>
-</body>
-    <script src="/index.js"></script>
-</html>
+  <div class="game-field">
+    <div class="placeholder"></div>
+    
+    <canvas id="myCanvas" width="560" height="460" style="border: 2px solid #788ead;"></canvas>
+    
+    <div class = "score-board">
+      <h2>Score board:</h2>
+      <div>Sick: <span id="sick-counter">xx</span></div>
+      <div>Dead: <span id="ded-counter">xx</span></div>
+      <div>Healthy: <span id="healthy-counter">xx</span></div>
+      <div>Immune: <span id="immune-counter">xx</span></div>
+      <div>Vaccinated: <span id="vaccinated-counter">xx</span></div>
 
-<h4>ideas for name: vaccinator, 
-  infection hunter, disease hunter, 
-  the horrifying truth of disease spreading</h4>
+      <h2>In percentages:</h2>
+      <div>Sick: <span id="sick-counter">xx</span></div>
+      <div>Dead: <span id="ded-counter">xx</span></div>
+      <div>Healthy: <span id="healthy-counter">xx</span></div>
+      <div>Immune: <span id="immune-counter">xx</span></div>
+      <div>Vaccinated: <span id="vaccinated-counter">xx</span></div>
+    </div>
+
+    <button class="button" onClick="window.location.href=window.location.href">Restart!</button>
+  </div>
+  <script src="index.js"></script>
+  
+</body>
+</html>
