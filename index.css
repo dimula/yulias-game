@@ -23,7 +23,7 @@ div {
   font-weight: bold;
 }
 
-/*
+
 #ded-counter {
   color: #5c5c5c;
 }
@@ -38,13 +38,34 @@ div {
 
 
 #immune-counter {
+  color: #fff88f;-percent
+}
+
+#vaccinated-counter-percent {
+  color: #788ead;
+}
+
+#ded-counter-percent {
+  color: #5c5c5c;
+}
+
+#sick-counter-percent {
+  color: #f55356;
+}
+
+#healthy-counter-percent {
+  color: #57d97b;
+} 
+
+
+#immune-counter-percent {
   color: #fff88f;
 }
 
-#vaccinated-counter {
+#vaccinated-counter-percent {
   color: #788ead;
 }
-*/
+
 
 ul {
   list-style-type: none;
@@ -74,8 +95,8 @@ li a:hover {
 
 .game-field {
   margin: auto;
-  //border: 3px solid red;
-  width: 780px;
+  border: 3px solid red;
+  width: 880px;
 }
 
 #myCanvas, .score-board {

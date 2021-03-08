@@ -22,8 +22,8 @@ function getCursorPosition(canvas, event) {
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
     //console.log("x: " + x + " y: " + y)
-    var xi=Math.floor(x/CIRCLE_SIZE-1)
-    var yi=Math.floor(y/CIRCLE_SIZE-1)
+    var xi=Math.floor(x/CIRCLE_SIZE)
+    var yi=Math.floor(y/CIRCLE_SIZE)
     //console.log("xi: " + xi + " yi: " + yi)
     
     var person = people[xi][yi]
@@ -196,12 +196,20 @@ function socreBoard(){
       };
     }
   }
+
+  var onepercent = people.length*people[0].length/100;
   
   document.getElementById("ded-counter").innerHTML=dedCounter
   document.getElementById("healthy-counter").innerHTML=healthyCounter
   document.getElementById("sick-counter").innerHTML=sickCounter
   document.getElementById("immune-counter").innerHTML=immuneCounter
   document.getElementById("vaccinated-counter").innerHTML=vaccinatedCounter
+
+  document.getElementById("ded-counter-percent").innerHTML=(dedCounter/onepercent).toFixed(0) +"%"
+  document.getElementById("healthy-counter-percent").innerHTML=(healthyCounter/onepercent).toFixed(0) +"%"
+  document.getElementById("sick-counter-percent").innerHTML=(sickCounter/onepercent).toFixed(0) +"%"
+  document.getElementById("immune-counter-percent").innerHTML=(immuneCounter/onepercent).toFixed(0) +"%"
+  document.getElementById("vaccinated-counter-percent").innerHTML=(vaccinatedCounter/onepercent).toFixed(0) +"%"
 }
 
 
