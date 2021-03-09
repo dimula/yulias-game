@@ -12,13 +12,13 @@ h1 {
 h2 {
   color: #788ead;
   font-family: Ariel;
-  font-size: 18px;
+  font-size: 25px;
 }
 
 h3 {
   color: #788ead;
   font-family: Aril;
-  font-size: 14px;
+  font-size: 18px;
   width: 480px;
   text-align:justify;
 }
@@ -53,6 +53,12 @@ ul {
 li.b {
   color: #788ead;
   font-family: Ariel;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
+}
+
+p.center{
+  width: 900px;
+  margin: auto;
+  text-align:justify;
 }

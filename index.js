@@ -210,6 +210,10 @@ function socreBoard(){
   document.getElementById("sick-counter-percent").innerHTML=(sickCounter/onepercent).toFixed(0) +"%"
   document.getElementById("immune-counter-percent").innerHTML=(immuneCounter/onepercent).toFixed(0) +"%"
   document.getElementById("vaccinated-counter-percent").innerHTML=(vaccinatedCounter/onepercent).toFixed(0) +"%"
+
+  if (dedCounter/onepercent > 2) {
+        document.getElementById(You-Loose).style.display = 'block';
+    };
 }
 
 
